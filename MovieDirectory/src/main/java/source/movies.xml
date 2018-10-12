@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+<movieList>
+    <movie>
+        <title>The Cat in the Hat</title>
+        <director>Director1</director>
+        <productionDate>2018-09-23</productionDate>
+        <actors>
+            <actor>
+                Maciek
+            </actor>
+            <actor>
+                Jacek
+            </actor>
+            <actor>
+                Ala
+            </actor>
+        </actors>
+        <genre>The Aventure</genre>
+    </movie>
+    <movie>
+        <title>Hobbit</title>
+        <director>Director2</director>
+        <productionDate>2012-02-13</productionDate>
+        <actors>
+            <actor>
+                Wiktor
+            </actor>
+            <actor>
+                Tomek
+            </actor>
+        </actors>
+        <genre>Fantasy</genre>
+    </movie>
+</movieList>

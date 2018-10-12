@@ -1,0 +1,24 @@
+[
+  {
+    "title": "Rabbit",
+    "director": "Noner",
+    "productionDate": "2005-09-08",
+    "genre": "Horror",
+    "actors": [
+      "Marek",
+      "Janek",
+      "Kasia"
+    ]
+  },
+  {
+    "title": "Worms",
+    "director": "pricer",
+    "productionDate": "2000-03-08",
+    "genre": "Anime",
+    "actors": [
+      "Marek",
+      "Pawel",
+      "Ala"
+    ]
+  }
+]
