@@ -1,12 +1,13 @@
 import domain.Movie;
-import org.apache.commons.io.IOUtils;
 import repository.MovieRepository;
 import repository.impl.MovieRepositoryImpl;
 import utils.ExcelExporter;
 import utils.FileDeserializer;
+import utils.Operations;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.List;
 import java.util.Optional;
 import java.util.Scanner;
@@ -21,13 +22,13 @@ public class MovieLibrary {
     private static FileDeserializer fileDeserializer;
 
 
-    public static void main(String[] args) throws IOException, IllegalAccessException, InterruptedException {
+    public static void main(String[] args) throws IOException, IllegalAccessException, InterruptedException, ParseException {
         MovieLibrary.getDataFromSelectedFile();
         movieRepository = new MovieRepositoryImpl(fileDeserializer.getDataFromFile());
         MovieLibrary.getLibraryPanel();
     }
 
-    private static void getDataFromSelectedFile() throws IOException, IllegalAccessException, InterruptedException {
+    private static void getDataFromSelectedFile() throws IOException, IllegalAccessException, InterruptedException, ParseException {
         boolean readStatement = true;
         Scanner sc;
         while (readStatement) {
@@ -77,8 +78,9 @@ public class MovieLibrary {
 
         Scanner sc = new Scanner(System.in);
         int operation = sc.nextInt();
-        switch (operation) {
-            case 1:
+
+        switch (  Operations.values()[operation]) {
+            case SHOW_MOVIES:
                 List<Movie> movieList = movieRepository.getMovieList();
                 for (Movie mv : movieList) {
                     System.out.println(mv.toString());
@@ -86,18 +88,18 @@ public class MovieLibrary {
                 System.out.println("\nPress 0 if u want back to LibraryPanel");
                 sc.nextLine();
                 MovieLibrary.reloadLibraryPanel(sc.nextInt());
-            case 2:
+            case FIND_BY_TITTLE:
                 System.out.println("Write film tittle:");
                 sc.nextLine();
                 Optional<Movie> movieByTittle = movieRepository.getMovieByTittle(sc.nextLine());
                 if (movieByTittle.isPresent()) {
-                    System.out.println(movieByTittle.toString());
+                    System.out.println(movieByTittle.map(Movie::toString));
                 } else {
                     System.out.println("No such  film with given Tittle ! ");
                 }
                 System.out.println("\nPress 0 if u want back to LibraryPanel");
                 MovieLibrary.reloadLibraryPanel(sc.nextInt());
-            case 3:
+            case FIND_BY_ACTOR:
                 System.out.println("Show films with selected actors:");
                 sc.nextLine();
                 List<Movie> moviesByActorName = movieRepository.findMoviesByActorName(sc.nextLine());
@@ -112,7 +114,7 @@ public class MovieLibrary {
 
                 System.out.println("\nPress 0 if u want back to LibraryPanel");
                 MovieLibrary.reloadLibraryPanel(sc.nextInt());
-            case 4:
+            case SORT_BY_DATE:
                 List<Movie> movieByProductionDate = movieRepository.sortMovieByProductionDate();
                 System.out.println("Movie list ordered by production date:");
                 for (Movie mv : movieByProductionDate) {
@@ -121,7 +123,7 @@ public class MovieLibrary {
                 System.out.println("\nPress 0 if u want back to LibraryPanel");
                 sc.nextLine();
                 MovieLibrary.reloadLibraryPanel(sc.nextInt());
-            case 5:
+            case SORY_BY_GENRE:
                 List<Movie> movieByGenre = movieRepository.sortMovieByGenre();
                 System.out.println("Movie list ordered by genre:");
                 for (Movie mv : movieByGenre) {
@@ -130,7 +132,7 @@ public class MovieLibrary {
                 System.out.println("\nPress 0 if u want back to LibraryPanel");
                 sc.nextLine();
                 MovieLibrary.reloadLibraryPanel(sc.nextInt());
-            case 6:
+            case SORT_BY_ALL:
                 List<Movie> movieByGenreAndDate = movieRepository.sortMovieByGenreAndDate();
                 System.out.println("Movie list ordered by genre:");
                 for (Movie mv : movieByGenreAndDate) {
@@ -139,7 +141,7 @@ public class MovieLibrary {
                 System.out.println("\nPress 0 if u want back to LibraryPanel");
                 sc.nextLine();
                 MovieLibrary.reloadLibraryPanel(sc.nextInt());
-            case 7:
+            case CREATE_XML:
                 System.out.println("Sure for exporting data to Excel  YES/NO ? ");
                 sc.nextLine();
                 String choice = sc.nextLine();
@@ -151,7 +153,7 @@ public class MovieLibrary {
                     Thread.sleep(2000);
                     MovieLibrary.reloadLibraryPanel(sc.nextInt());
                 }
-            case 8:
+            case CLOSE:
                 System.out.println("Thanks for using Library ! Good Bye ");
                 System.exit(0);
         }

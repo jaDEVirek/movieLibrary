@@ -1,8 +1,10 @@
 package repository.impl;
 
+import domain.Actor;
 import domain.Movie;
 import repository.MovieRepository;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
@@ -28,9 +30,15 @@ public class MovieRepositoryImpl implements MovieRepository {
 
     @Override
     public List<Movie> findMoviesByActorName(String actorName) {
-        return this.movieList.stream()
-                .filter(mv -> mv.getActors().contains(actorName))
-                .collect(Collectors.toList());
+        List<Movie> movieResult = new ArrayList<>();
+        for (Movie mv : movieList) {
+            List<Actor> actors = mv.getActors();
+            if (actors.stream()
+                    .anyMatch(t -> t.getFullName().contains(actorName))) {
+                movieResult.add(mv);
+            }
+        }
+        return movieResult;
     }
 
     @Override

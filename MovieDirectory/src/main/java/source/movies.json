@@ -1,24 +1,24 @@
 [
   {
     "title": "Rabbit",
-    "director": "Noner",
+    "director": "Noner oner",
     "productionDate": "2005-09-08",
     "genre": "Horror",
     "actors": [
-      "Marek",
-      "Janek",
-      "Kasia"
+      "Marek Warek",
+      "Janek Awww",
+      "Kasia Azzz"
     ]
   },
   {
     "title": "Worms",
-    "director": "pricer",
+    "director": "pricer rincer",
     "productionDate": "2000-03-08",
     "genre": "Anime",
     "actors": [
-      "Marek",
-      "Pawel",
-      "Ala"
+      "Marek Dzik",
+      "Pawel Jasny",
+      "Ala Tomska"
     ]
   }
 ]

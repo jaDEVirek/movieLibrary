@@ -2,31 +2,29 @@
 <movieList>
     <movie>
         <title>The Cat in the Hat</title>
-        <director>Director1</director>
-        <productionDate>2018-09-23</productionDate>
+        <director>Director First</director>
+        <productionDate>23-09-1995</productionDate>
         <actors>
+            <actor>Maciek Lasocki</actor>
             <actor>
-                Maciek
+                Jacek Wasiak
             </actor>
             <actor>
-                Jacek
-            </actor>
-            <actor>
-                Ala
+                Ala makota
             </actor>
         </actors>
         <genre>The Aventure</genre>
     </movie>
     <movie>
         <title>Hobbit</title>
-        <director>Director2</director>
-        <productionDate>2012-02-13</productionDate>
+        <director>Director Second</director>
+        <productionDate>13-02-2018</productionDate>
         <actors>
             <actor>
-                Wiktor
+                Wiktor Tomczuk
             </actor>
             <actor>
-                Tomek
+                Tomek Bonczyk
             </actor>
         </actors>
         <genre>Fantasy</genre>

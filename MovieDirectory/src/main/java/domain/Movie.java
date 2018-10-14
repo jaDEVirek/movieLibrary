@@ -2,7 +2,6 @@ package domain;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -12,9 +11,9 @@ import java.util.Objects;
  */
 public class Movie implements Serializable {
     private String title;
-    private String director;
-    private String productionDate;
-    private List<String> actors;
+    private Director director;
+    private Date productionDate;
+    private List<Actor> actors;
     private String genre;
 
 
@@ -22,7 +21,7 @@ public class Movie implements Serializable {
     }
 
 
-    public Movie(String title, String director, String productionDate, List<String> actors, String genre) {
+    public Movie(String title, Director director, Date productionDate, List<Actor> actors, String genre) {
         this.title = title;
         this.director = director;
         this.productionDate = productionDate;
@@ -38,27 +37,27 @@ public class Movie implements Serializable {
         this.title = title;
     }
 
-    public String getDirector() {
+    public Director getDirector() {
         return director;
     }
 
-    public void setDirector(String director) {
+    public void setDirector(Director director) {
         this.director = director;
     }
 
-    public String getProductionDate() {
+    public Date getProductionDate() {
         return productionDate;
     }
 
-    public void setProductionDate(String productionDate) {
+    public void setProductionDate(Date productionDate) {
         this.productionDate = productionDate;
     }
 
-    public List<String> getActors() {
+    public List<Actor> getActors() {
         return actors;
     }
 
-    public void setActors(List<String> actors) {
+    public void setActors(List<Actor> actors) {
         this.actors = actors;
     }
 
@@ -89,12 +88,12 @@ public class Movie implements Serializable {
 
     @Override
     public String toString() {
-        return "Movie: [" +
-                "title: '" + title + '\'' +
-                "| director: '" + director + '\'' +
-                "| productionDate: " + productionDate +
-                "| actors: " + actors +
-                " genre:'" + genre + '\'' +
-                ']';
+        return "Movie: " +
+                "Title: '" + title + '\'' +
+                " \nDirector: '" + director + '\'' +
+                " | productionDate: " + new SimpleDateFormat("dd-mm-yyy").format(productionDate) +
+                "\nActors: " + actors +
+                "\nGenre:'" + genre + '\''+"\n"
+                ;
     }
 }

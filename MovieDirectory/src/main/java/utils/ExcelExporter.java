@@ -4,7 +4,6 @@ import domain.Movie;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -53,7 +52,7 @@ public class ExcelExporter {
         for (Movie mv : movieList) {
             Row row = sheet.createRow(rowNum++);
             row.createCell(0).setCellValue(mv.getTitle());
-            row.createCell(1).setCellValue(mv.getDirector());
+            row.createCell(1).setCellValue(mv.getDirector().toString());
             row.createCell(2).setCellValue(mv.getProductionDate());
             row.createCell(3).setCellValue(mv.getActors().toString());
             row.createCell(4).setCellValue(mv.getGenre());
