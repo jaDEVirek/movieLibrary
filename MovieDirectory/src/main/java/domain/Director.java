@@ -10,7 +10,6 @@ public class Director extends Person {
 
     public Director(String fullName) {
         String[] s = fullName.split(" ");
-        System.out.println("Director "+ fullName);
         this.setFirstName(s[0]);
         this.setSecondName(s[1]);
     }

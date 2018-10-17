@@ -16,6 +16,18 @@
         <genre>The Aventure</genre>
     </movie>
     <movie>
+        <title>Szklana Pulapka 5</title>
+        <director>John Moore</director>
+        <productionDate>14-02-2013</productionDate>
+        <actors>
+            <actor>Bruce Willis</actor>
+            <actor>
+                Jai Courtney
+            </actor>
+        </actors>
+        <genre>Action</genre>
+    </movie>
+    <movie>
         <title>Hobbit</title>
         <director>Director Second</director>
         <productionDate>13-02-2018</productionDate>

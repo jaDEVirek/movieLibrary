@@ -70,7 +70,7 @@ public class FileDeserializer {
         Elements children = root.children();
         for (Element child : children) {
             String title = child.select("title").text();
-            Director director = new Director(child.select("director").text());  
+            Director director = new Director(child.select("director").text());
             String productionDate = child.select("productionDate").text();
             String genre = child.select("genre").text();
             List<String> actors = child.select("actors").select("actor").eachText();
@@ -94,4 +94,11 @@ public class FileDeserializer {
         return actors;
     }
 
+    /**
+     * Method used for test
+     * @return   file extension 
+     */
+    public String getExtensionForTest() {
+        return this.getFileExtension();
+    }
 }
